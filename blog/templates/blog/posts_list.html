@@ -6,6 +6,16 @@
 
 
 {% block contain %}
-this is for example
+    {% for posts in posts_list %}
+        {{ posts.title }}
+        <br>
+        {{ posts.author }}
+        <br>
+        {{ posts.text }}
+        <br>
+
+    {% endfor %}
 {% endblock contain %}
+
+
 

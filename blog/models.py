@@ -8,7 +8,6 @@ class Post(models.Model):
         ('pub', 'Published'),
         ('drf', 'Draft'),
     )
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     text = models.TextField()
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)

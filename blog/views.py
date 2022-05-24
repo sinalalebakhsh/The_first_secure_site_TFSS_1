@@ -9,6 +9,6 @@ def post_list_view(request):
 
 
 def post_detail_view(request, pk):
-    print('id in url: ', pk)
-    return HttpResponse(f'id: {pk}')
+    post = Post.objects.get(pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
 

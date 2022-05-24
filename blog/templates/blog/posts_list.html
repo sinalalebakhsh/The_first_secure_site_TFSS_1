@@ -18,7 +18,7 @@
                             <p class="card-text py-3">
                                 {{ post.text }}
                            </p>
-                            <a href="/blog/{{ post.id }}" class="btn btn-sm btn-success">Read this...</a>
+                            <a href="{% url 'post detail' post.id %}" class="btn btn-sm btn-success">Read this...</a>
                         </div>
                     </div>
                 {% endfor %}

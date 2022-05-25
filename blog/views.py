@@ -11,6 +11,7 @@ def post_list_view(request):
 
 def post_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    # is another way to setting wrong link
     # try:
     #     post = Post.objects.get(pk=pk)
     # except ObjectDoesNotExist:

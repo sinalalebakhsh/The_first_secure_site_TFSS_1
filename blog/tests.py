@@ -26,3 +26,6 @@ class BlogPostTest(TestCase):
         response = self.client.get(reverse('post list view'))
         self.assertContains(response, self.post1.title)
 
+    def test_post_detail_url(self):
+        response = self.client.get(f'/blog/{self.post1.id}/')
+        self.assertEqual(response.status_code, 200)

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
 
 def post_list_view(request):
     entire_posts = Post.objects.all()
@@ -9,10 +10,11 @@ def post_list_view(request):
 
 
 def post_detail_view(request, pk):
-    try:
-        post = Post.objects.get(pk=pk)
-    except ObjectDoesNotExist:
-        post = None
-        print('Exception ObjectDoesNotExist')
+    post = get_object_or_404(Post, pk=pk)
+    # try:
+    #     post = Post.objects.get(pk=pk)
+    # except ObjectDoesNotExist:
+    #     post = None
+    #     print('Exception ObjectDoesNotExist')
     return render(request, 'blog/post_detail.html', {'post': post})
 

@@ -13,3 +13,7 @@ class BlogPostTest(TestCase):
             status=Post.STATUS_CHOICES[0],
             author=self.user,
         )
+
+    def test_post_list_url(self):
+        response = self.client.get('/blog/')
+        self.assertEqual(response.status_code, 200)

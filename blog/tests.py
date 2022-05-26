@@ -10,7 +10,7 @@ class BlogPostTest(TestCase):
         self.post1 = Post.objects.create(
             title='Post1',
             text='This is the description of Post1',
-            status=Post.STATUS_CHOICES[0],
+            status=Post.STATUS_CHOICES[0][0],
             author=self.user,
         )
 

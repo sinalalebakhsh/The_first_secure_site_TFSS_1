@@ -43,3 +43,8 @@ class BlogPostTest(TestCase):
     def test_status_404_if_post_id_not_exist(self):
         response = self.client.get(reverse('post detail', args=[(self.post1.id)+1]))
         self.assertEqual(response.status_code, 404)
+
+    def test_draft_post_not_show_in_posts_list(self):
+        response = self.client.get(reverse('post list view'))
+        self.assertContains(response, self.post1.title)
+        self.assertNotContains(response, self.post2.title)

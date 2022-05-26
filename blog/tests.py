@@ -13,6 +13,11 @@ class BlogPostTest(TestCase):
             status=Post.STATUS_CHOICES[0][0],
             author=self.user,
         )
+        self.post2 = Post.objects.create(
+            title='Post2',
+            text='This is for Post2',
+            status=Post.STATUS_CHOICES[1][0],
+        )
 
     def test_post_list_url(self):
         response = self.client.get('/blog/')

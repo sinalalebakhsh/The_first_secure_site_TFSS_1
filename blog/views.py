@@ -6,9 +6,9 @@ from django.shortcuts import get_object_or_404
 
 
 def post_list_view(request):
-    entire_posts = Post.objects.all()
-    # just_published = Post.objects.filter(status='pub')
-    return render(request, 'blog/posts_list.html', {'posts_list': entire_posts})
+    # entire_posts = Post.objects.all()
+    just_published = Post.objects.filter(status='pub')
+    return render(request, 'blog/posts_list.html', {'posts_list': just_published})
 
 
 def post_detail_view(request, pk):

@@ -48,3 +48,5 @@ class BlogPostTest(TestCase):
         response = self.client.get(reverse('post list view'))
         self.assertContains(response, self.post1.title)
         self.assertNotContains(response, self.post2.title)
+
+

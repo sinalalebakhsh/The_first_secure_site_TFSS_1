@@ -8,18 +8,18 @@ from django.shortcuts import reverse
 class PostTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.user = User.objects.create(username='user1')
+        user = User.objects.create(username='user1')
         cls.post1 = Post.objects.create(
             title='Post1',
             text='This is description',
             status=Post.STATUS_CHOICES[0][0],
-            author=cls.user,
+            author=user,
         )
         cls.post2 = Post.objects.create(
             title='Post2',
             text='This is for Post2',
             status=Post.STATUS_CHOICES[1][0],
-            author=cls.user,
+            author=user,
         )
     # # def setUp(self): this is old method
 

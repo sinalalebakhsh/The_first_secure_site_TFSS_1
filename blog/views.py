@@ -14,10 +14,8 @@ def post_list_view(request):
 def post_detail_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
-    # is another way to setting wrong link
-    # try:
-    #     post = Post.objects.get(pk=pk)
-    # except ObjectDoesNotExist:
-    #     post = None
-    #     print('Exception ObjectDoesNotExist')
+
+
+def post_create_view(request):
+    return render(request, 'blog/post_create.html')
 

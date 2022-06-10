@@ -17,6 +17,7 @@ def post_detail_view(request, pk):
 
 
 def post_create_view(request):
-    print('request is direct here')
+    if request.method == 'POST_CREATE':
+        print('in correct')
     return render(request, 'blog/post_create.html')
 

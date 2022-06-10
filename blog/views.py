@@ -18,12 +18,13 @@ def post_detail_view(request, pk):
 
 
 def post_create_view(request):
-    if request.method == 'POST':
-        post_title = request.POST.get('title')
-        post_text = request.POST.get('text')
-        user = User.objects.all()[0]
-        Post.objects.create(title=post_title, text=post_text, status='pub', author=user)
-    else:
-        print('Get request *********')
+    
+    # if request.method == 'POST':
+    #     post_title = request.POST.get('title')
+    #     post_text = request.POST.get('text')
+    #     user = User.objects.all()[0]
+    #     Post.objects.create(title=post_title, text=post_text, status='pub', author=user)
+    # else:
+    #     print('Get request *********')
     return render(request, 'blog/post_create.html')
 

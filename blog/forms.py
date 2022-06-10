@@ -4,4 +4,4 @@ from .models import Post
 
 class NewPostForm(forms.ModelForm):
     class Meta:
-        pass
+        model = Post

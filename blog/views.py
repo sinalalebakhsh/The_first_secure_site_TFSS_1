@@ -23,6 +23,7 @@ def post_create_view(request):
     else:  # get request
         form = NewPostForm()
 
+    return render(request, 'blog/post_create.html', context={'form': form})
 
     # if request.method == 'POST':
     #     post_title = request.POST.get('title')

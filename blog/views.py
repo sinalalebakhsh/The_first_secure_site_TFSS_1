@@ -23,7 +23,7 @@ def post_create_view(request):
     if request.method == 'POST':
         form = NewPostForm(request.POST)
         if form.is_valid():
-            pass
+            form.save()
     else:  # get request
         form = NewPostForm()
 

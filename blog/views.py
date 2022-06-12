@@ -24,6 +24,7 @@ def post_create_view(request):
         form = NewPostForm(request.POST)
         if form.is_valid():
             form.save()
+            form = NewPostForm()
     else:  # get request
         form = NewPostForm()
 

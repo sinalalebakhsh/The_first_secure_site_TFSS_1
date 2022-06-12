@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import Post
-from django.http import HttpResponse
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth.models import User
+# from django.http import HttpResponse
+# from django.core.exceptions import ObjectDoesNotExist
+# from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+
 from .forms import NewPostForm
+
 
 def post_list_view(request):
     # entire_posts = Post.objects.all()
@@ -19,7 +21,8 @@ def post_detail_view(request, pk):
 
 def post_create_view(request):
     if request.method == 'POST':
-        pass
+        form = NewPostForm(request.POST)
+        
     else:  # get request
         form = NewPostForm()
 

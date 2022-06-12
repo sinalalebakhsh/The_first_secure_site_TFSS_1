@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 # from django.http import HttpResponse
 # from django.core.exceptions import ObjectDoesNotExist
@@ -24,7 +24,7 @@ def post_create_view(request):
         form = NewPostForm(request.POST)
         if form.is_valid():
             form.save()
-            form = NewPostForm()
+            return redirect('post list view')
     else:  # get request
         form = NewPostForm()
 

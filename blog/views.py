@@ -27,7 +27,11 @@ def post_create_view(request):
             return redirect('post list view')
     else:  # get request
         form = NewPostForm()
-
     return render(request, 'blog/post_create.html', context={'form': form})
 
+
+def post_update_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    form = NewPostForm(instance=post)
+    return render(request, 'blog/post-create.html', context={'form': form})
 

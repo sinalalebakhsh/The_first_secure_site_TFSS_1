@@ -30,12 +30,37 @@ def post_create_view(request):
     return render(request, 'blog/post_create.html', context={'form': form})
 
 
+    #
+    # post = get_object_or_404(Post, pk=pk)
+    # form = NewPostForm(instance=post)
+    # return render(request, 'blog/post_create.html', context={'form': form})
+
+
 def post_update_view(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    form = NewPostForm(request.POST or None, instance=post)
+    form = NewPostForm(instance=post)
 
-    if form.is_valid():
-        form.save()
+    return render(request, 'blog/post_create.html', context={'form': form})
 
-    return render(request, 'blog/post-create.html', context={'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

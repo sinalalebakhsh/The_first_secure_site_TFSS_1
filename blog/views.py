@@ -10,7 +10,7 @@ from .forms import NewPostForm
 
 def post_list_view(request):
     # entire_posts = Post.objects.all()
-    just_published = Post.objects.filter(status='pub')
+    just_published = Post.objects.filter(status='pub').order_by('-datetime_modified')
     return render(request, 'blog/posts_list.html', {'posts_list': just_published})
 
 
@@ -28,6 +28,7 @@ def post_create_view(request):
     else:  # get request
         form = NewPostForm()
     return render(request, 'blog/post_create.html', context={'form': form})
+
 
 def post_update_view(request, pk):
     post = get_object_or_404(Post, pk=pk)

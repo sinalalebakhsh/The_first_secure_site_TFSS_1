@@ -41,7 +41,9 @@ def post_update_view(request, pk):
     return render(request, 'blog/post_create.html', context={'form': form})
 
 def post_delete(request, pk):
-    pass
+    post = get_object_or_404(Post, pk=pk)
+
+    return render(request, 'blog/post_delete.html', )
 
 
 

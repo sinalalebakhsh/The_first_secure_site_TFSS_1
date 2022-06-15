@@ -40,6 +40,9 @@ def post_update_view(request, pk):
 
     return render(request, 'blog/post_create.html', context={'form': form})
 
+def post_delete(request, pk):
+    pass
+
 
 
 

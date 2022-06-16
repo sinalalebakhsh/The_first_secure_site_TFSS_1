@@ -43,7 +43,7 @@ def post_update_view(request, pk):
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
-    return render(request, 'blog/post_delete.html', )
+    return render(request, 'blog/post_delete.html', context={'post': post})
 
 
 

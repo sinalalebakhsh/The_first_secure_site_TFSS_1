@@ -20,7 +20,6 @@
                                 {{ post.text }}
                            </p>
                             <a href="{% url 'post detail' post.id %}" class="btn btn-primary">Read this...</a>
-                            <a href="{% url 'post-update' post.id %}" class="btn btn-info">Edit the Post</a>
                         </div>
                     </div>
                 {% endfor %}

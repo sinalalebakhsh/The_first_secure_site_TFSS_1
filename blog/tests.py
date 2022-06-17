@@ -26,11 +26,6 @@ class PostTest(TestCase):
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
 
-
-    def test_post_list_url(self):
-        response = self.client.get('/blog/')
-        self.assertEqual(response.status_code, 200)
-
     def test_post_list_url_by_name(self):
         response = self.client.get(reverse('post list view'))
         self.assertEqual(response.status_code, 200)
@@ -60,3 +55,9 @@ class PostTest(TestCase):
     def test_post_model_str(self):
         post = self.post1
         self.assertEqual(str(post), post.title)
+
+    def test_post_detail(self):
+        self.assertEqual(self.post1.title, 'Post1')
+        self.assertEqual(self.post1.text, 'This is description')
+
+

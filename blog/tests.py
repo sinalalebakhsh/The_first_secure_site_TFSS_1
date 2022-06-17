@@ -71,4 +71,16 @@ class PostTest(TestCase):
         self.assertEqual(Post.objects.last().title, 'Some Title')
         self.assertEqual(Post.objects.last().text, 'This is some text!')
 
+    def test_post_update_view(self):
+        response = self.client.post(reverse('post-update', args=[self.post2.id]), {
+            'title': 'Post2 Update',
+            'text': 'This text is Updated',
+            'status': 'pub',
+            'author': self.post2.author.id,
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().title, 'Post2 Update')
+        self.assertEqual(Post.objects.last().text, 'This text is Updated')
+
+
 

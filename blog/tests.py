@@ -8,18 +8,18 @@ from django.shortcuts import reverse
 class PostTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        user = User.objects.create(username='user1')
+        cls.user = User.objects.create(username='user1')
         cls.post1 = Post.objects.create(
             title='Post1',
             text='This is description',
             status=Post.STATUS_CHOICES[0][0],
-            author=user,
+            author=cls.user,
         )
         cls.post2 = Post.objects.create(
             title='Post2',
             text='This is for Post2',
             status=Post.STATUS_CHOICES[1][0],
-            author=user,
+            author=cls.user,
         )
 
     def test_post_list_url(self):
@@ -59,5 +59,16 @@ class PostTest(TestCase):
     def test_post_detail(self):
         self.assertEqual(self.post1.title, 'Post1')
         self.assertEqual(self.post1.text, 'This is description')
+
+    def test_post_create_view(self):
+        response = self.client.post(reverse('post_create'), {
+            'title': 'Some Title',
+            'text': 'This is some text!',
+            'status': 'pub',
+            'author': self.user.id,
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().title, 'Some Title')
+        self.assertEqual(Post.objects.last().text, 'This is some text!')
 
 

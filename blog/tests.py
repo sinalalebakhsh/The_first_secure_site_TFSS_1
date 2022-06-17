@@ -21,17 +21,10 @@ class PostTest(TestCase):
             status=Post.STATUS_CHOICES[1][0],
             author=user,
         )
-    # # def setUp(self): this is old method
-
-
 
     def test_post_list_url(self):
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
-
-
-################################################################################
-
 
 
     def test_post_list_url(self):
@@ -63,3 +56,7 @@ class PostTest(TestCase):
         response = self.client.get(reverse('post list view'))
         self.assertContains(response, self.post1.title)
         self.assertNotContains(response, self.post2.title)
+
+    def test_post_model_str(self):
+        post = self.post1
+        self.assertEqual(str(post), post.title)

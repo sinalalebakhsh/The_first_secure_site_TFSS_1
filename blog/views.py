@@ -4,14 +4,16 @@ from .models import Post
 # from django.core.exceptions import ObjectDoesNotExist
 # from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-
+from django.views import generic
 from .forms import NewPostForm
 
 
-def post_list_view(request):
-    # entire_posts = Post.objects.all()
-    just_published = Post.objects.filter(status='pub').order_by('-datetime_modified')
-    return render(request, 'blog/posts_list.html', {'posts_list': just_published})
+# def post_list_view(request):
+#     # entire_posts = Post.objects.all()
+#     just_published = Post.objects.filter(status='pub').order_by('-datetime_modified')
+#     return render(request, 'blog/posts_list.html', {'posts_list': just_published})
+
+
 
 
 def post_detail_view(request, pk):

@@ -13,6 +13,10 @@ from .forms import NewPostForm
 #     just_published = Post.objects.filter(status='pub').order_by('-datetime_modified')
 #     return render(request, 'blog/posts_list.html', {'posts_list': just_published})
 
+class PostListView(generic.ListView):
+    model = Post
+    template_name = 'blog/posts_list.html'
+    context_object_name = 'posts_list'
 
 
 

@@ -30,6 +30,7 @@ class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
 
+
 def post_create_view(request):
     if request.method == 'POST':
         form = NewPostForm(request.POST)

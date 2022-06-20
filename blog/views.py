@@ -29,7 +29,7 @@ class PostListView(generic.ListView):
 class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
-
+    context_object_name = 'post'
 
 def post_create_view(request):
     if request.method == 'POST':
